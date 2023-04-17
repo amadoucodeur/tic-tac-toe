@@ -1,0 +1,138 @@
+
+
+<Touch>:
+    type: 'touch'
+    occupation: 'vide'
+    size: 60, 60
+    canvas:
+        Color:
+            rgba: 1,1,1,0
+        Ellipse:
+            size: self.size
+            pos: self.pos
+
+        
+<PionX>:
+    type: 'pion'
+    genre: 'x'
+    posIndice: 0
+    size: 50, 50
+    source: './medias/pion11.png'
+    canvas.before:
+        Color:
+            rgba: 1,1,.5, self.light
+        Ellipse:
+            pos: self.pos[0] - 5, self.pos[1] - 5
+            size: self.size[0]+ 10, self.size[1]+10
+
+
+<PionY>:
+    type: 'pion'
+    genre: 'y'
+    posIndice: 0
+    size: 50, 50
+    source: './medias/pion22.png'
+    canvas.before:
+        Color:
+            rgba: .5,1,1, self.light
+        Ellipse:
+            pos: self.pos[0] - 5, self.pos[1] - 5
+            size: self.size[0]+ 10, self.size[1]+10
+
+
+<Game>:
+    canvas:
+        Color:
+            rgba: .3,.4,.3,1
+        # 1
+        Line:
+            width: 2
+            points: self.center_x-self.demi,self.center_y+self.demi,   self.center_x+self.demi,self.center_y+self.demi 
+
+        # 2
+        Line:
+            width: 2
+            points: self.center_x+self.demi,self.center_y+self.demi,   self.center_x+self.demi,self.center_y-self.demi 
+
+        # 3
+        Line:
+            width: 2
+            points: self.center_x+self.demi,self.center_y-self.demi,   self.center_x-self.demi,self.center_y-self.demi 
+
+        # 4
+        Line:
+            width: 2
+            points: self.center_x-self.demi,self.center_y-self.demi,   self.center_x-self.demi,self.center_y+self.demi 
+
+        # 5
+        Line:
+            width: 2
+            points: self.center_x-self.demi,self.center_y+self.demi,   self.center_x+self.demi,self.center_y-self.demi 
+
+        # 6
+        Line:
+            width: 2
+            points: self.center_x,self.center_y+self.demi,   self.center_x,self.center_y-self.demi 
+
+        # 7
+        Line:
+            width: 2
+            points: self.center_x+self.demi,self.center_y+self.demi,   self.center_x-self.demi,self.center_y-self.demi 
+
+        # 8
+        Line:
+            width: 2
+            points: self.center_x-self.demi,self.center_y,   self.center_x+self.demi,self.center_y
+
+        # victoire line
+        Color:
+            rgba: 1,1,1,1
+        Line:
+            width: 2
+            points: self.vLine
+
+    # Les Touches
+    # 1
+    Touch:
+        num: 1
+        center: root.center_x-root.demi,root.center_y+root.demi
+
+    # 2
+    Touch:
+        num: 2
+        center: root.center_x,root.center_y+root.demi
+    
+    # 3
+    Touch:
+        num: 3
+        center: root.center_x+root.demi,root.center_y+root.demi
+
+    # 4
+    Touch:
+        num: 4
+        center: root.center_x+root.demi,root.center_y
+
+    # 5
+    Touch:
+        num: 5
+        center: root.center_x+root.demi,root.center_y-root.demi 
+
+    # 6
+    Touch:
+        num: 6
+        center: root.center_x,root.center_y-root.demi 
+
+    # 7
+    Touch:
+        num: 7
+        center: root.center_x-root.demi,root.center_y-root.demi
+
+    # 8
+    Touch:
+        num: 8
+        center: root.center_x-root.demi,root.center_y
+
+    # 9
+    Touch:
+        num: 9
+        center: root.center_x,root.center_y
